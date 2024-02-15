@@ -22,6 +22,7 @@ for expression_dir in os.listdir(DATA_PATH):
         # Loop from 0 to 19, so that all the features are in order.
         for i in range(20):
             time_step = []
+            count = 0
 
             filename = os.path.join(DATA_PATH, expression_dir, sample_dir, str(i) + ".jpg")
 
@@ -34,28 +35,49 @@ for expression_dir in os.listdir(DATA_PATH):
 
             # Loop through all the landmarks
             for hand_landmarks in results.multi_hand_landmarks:
-                for j in range(len(hand_landmarks.landmark)):
+                if len(results.multi_handedness) == 1:
 
-                    x = hand_landmarks.landmark[j].x
-                    y = hand_landmarks.landmark[j].y
+                    for j in range(len(hand_landmarks.landmark)):
 
-                    # Save the coordinates as features in our time_step
-                    time_step.append(x)
-                    time_step.append(y)
+                        x = hand_landmarks.landmark[j].x
+                        y = hand_landmarks.landmark[j].y
 
-            # Save the time steps into our sample expression
-            sample.append(time_step)
-    # Save the sample of the expression into the expression list
-    expressions.append(sample)
-    # Save the label of the expression
-    labels.append(expression_dir)
+                        # Save the coordinates as features in our time_step
+                        time_step.append(x)
+                        time_step.append(y)
+
+                    # Save the time steps into our sample expression
+                    sample.append(time_step)
+
+                else:
+
+                    if count < 21:
+
+                        for j in range(len(hand_landmarks.landmark)):
+
+                            x = hand_landmarks.landmark[j].x
+                            y = hand_landmarks.landmark[j].y
+
+                            # Save the coordinates as features in our time_step
+                            time_step.append(x)
+                            time_step.append(y)
+
+                            count += 1
+
+                        # Save the time steps into our sample expression
+                        sample.append(time_step)
+
+        # Save the sample of the expression into the expression list
+        expressions.append(sample)
+        # Save the label of the expression
+        labels.append(expression_dir)
 
 print("Data processed SUCCESSFULLY!")
 
 print("Saving data...")
 
 # Store the dataset into a pickle file
-f = open("expressions.pkl", "wb")
+f = open("expressions.pickle", "wb")
 pickle.dump({'expressions': expressions, 'labels': labels}, f)
 f.close()
 
