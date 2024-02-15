@@ -6,12 +6,13 @@ Sequential model definition for the expression classifier
 '''
 
 
-def get_model(input_shape):
+def get_model(num_class):
     model = Sequential()
-    model.add(LSTM(64, input_shape=(20, 42), return_sequences=True))
-    model.add(LSTM(32, return_sequences=True))
+    model.add(LSTM(32, input_shape=(20, 42), return_sequences=True, activation='relu'))
+    model.add(LSTM(64, return_sequences=True, activation='relu'))
+    model.add(LSTM(32, return_sequences=False, activation='relu'))
     model.add(Dense(32, activation='relu'))
     model.add(Dense(16, activation='relu'))
-    model.add(Dense(input_shape, activation='sigmoid'))
+    model.add(Dense(num_class, activation='sigmoid'))
     model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model
