@@ -1,10 +1,11 @@
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, Dropout
 
-
 '''
 Sequential model definition for the expression classifier
 '''
+
+
 def get_model(input_shape):
     model = Sequential()
     model.add(LSTM(64, input_shape=(20, 42), return_sequences=True))
