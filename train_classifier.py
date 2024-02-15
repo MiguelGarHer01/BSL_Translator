@@ -29,4 +29,5 @@ predictions = classifier.predict(X_test)
 
 print(predictions)
 
+classifier.save('BSL_Expressions.h5')
 
