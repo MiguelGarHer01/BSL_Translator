@@ -39,17 +39,22 @@ for expression_dir in os.listdir(DATA_PATH):
                     x = hand_landmarks.landmark[j].x
                     y = hand_landmarks.landmark[j].y
 
+                    # Save the coordinates as features in our time_step
                     time_step.append(x)
                     time_step.append(y)
 
+            # Save the time steps into our sample expression
             sample.append(time_step)
+    # Save the sample of the expression into the expression list
     expressions.append(sample)
+    # Save the label of the expression
     labels.append(expression_dir)
 
 print("Data processed SUCCESSFULLY!")
 
 print("Saving data...")
 
+# Store the dataset into a pickle file
 f = open("expressions.pkl", "wb")
 pickle.dump({'expressions': expressions, 'labels': labels}, f)
 f.close()
