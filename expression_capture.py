@@ -3,7 +3,7 @@ import os
 import mediapipe as mp
 
 # Path where all the images will be stored
-IMG_PATH = "./data/test"
+IMG_PATH = "./test/0"
 
 # Defining some constants
 WAIT_FRAMES = 5
