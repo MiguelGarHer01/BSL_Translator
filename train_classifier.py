@@ -6,7 +6,7 @@ from model import get_model
 
 from helper import normalize_expressions, normalize_labels, number_classes
 
-EPOCHS = 150
+EPOCHS = 130
 
 data_dict = pickle.load(open('expressions.pickle', 'rb'))
 
