@@ -11,6 +11,7 @@ mp_hands = mp.solutions.hands.Hands(static_image_mode=True, min_detection_confid
 DATA_PATH = "./test"
 
 expressions = []
+dir = []
 
 print("Loading data...")
 
@@ -98,6 +99,7 @@ for expression_dir in os.listdir(DATA_PATH):
 
         # Save the sample of the expression into the expression list
         expressions.append(sample)
+        dir.append(sample_dir)
 
 classifier = keras.models.load_model('BSL_Expressions.keras')
 
@@ -105,4 +107,5 @@ expressions = np.asarray(expressions)
 
 predictions = classifier.predict(expressions)
 print(predictions)
+print(dir)
 
