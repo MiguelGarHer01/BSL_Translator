@@ -22,6 +22,10 @@ for expression_dir in os.listdir(DATA_PATH):
         # Loop from 0 to 19, so that all the features are in order.
         for i in range(20):
             time_step = []
+
+            # Added two lists to normalize the position of the hand in the frame
+            norm_x = []
+            norm_y = []
             count = 0
 
             filename = os.path.join(DATA_PATH, expression_dir, sample_dir, str(i) + ".jpg")
@@ -42,6 +46,19 @@ for expression_dir in os.listdir(DATA_PATH):
                         x = hand_landmarks.landmark[j].x
                         y = hand_landmarks.landmark[j].y
 
+                        # Save the coordinates for a future normalization
+                        norm_x.append(x)
+                        norm_y.append(y)
+
+                    for j in range(len(hand_landmarks.landmark)):
+
+                        x = hand_landmarks.landmark[j].x
+                        y = hand_landmarks.landmark[j].y
+
+                        # NORMALIZATION
+                        x = x - min(norm_x)
+                        y = y - min(norm_y)
+
                         # Save the coordinates as features in our time_step
                         time_step.append(x)
                         time_step.append(y)
@@ -54,9 +71,21 @@ for expression_dir in os.listdir(DATA_PATH):
                     if count < 21:
 
                         for j in range(len(hand_landmarks.landmark)):
+                            x = hand_landmarks.landmark[j].x
+                            y = hand_landmarks.landmark[j].y
+
+                            # Save the coordinates for a future normalization
+                            norm_x.append(x)
+                            norm_y.append(y)
+
+                        for j in range(len(hand_landmarks.landmark)):
 
                             x = hand_landmarks.landmark[j].x
                             y = hand_landmarks.landmark[j].y
+
+                            # NORMALIZATION
+                            x = x - min(norm_x)
+                            y = y - min(norm_y)
 
                             # Save the coordinates as features in our time_step
                             time_step.append(x)
