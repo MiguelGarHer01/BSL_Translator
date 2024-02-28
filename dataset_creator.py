@@ -18,11 +18,15 @@ print("Loading data...")
 
 print("Processing data...")
 
+# Loop through all the directories to read the images
 for expression_dir in os.listdir(DATA_PATH):
     for sample_dir in os.listdir(os.path.join(DATA_PATH, expression_dir)):
         sample = []
 
-        with alive_bar(20) as bar:
+        print("Processing sample #" + sample_dir)
+
+        # Start the progress bar for every sample
+        with alive_bar(20, theme='classic') as bar:
             # Loop from 0 to 19, so that all the features are in order.
             for i in range(20):
                 time_step = []
@@ -100,6 +104,7 @@ for expression_dir in os.listdir(DATA_PATH):
                             # Save the time steps into our sample expression
                             sample.append(time_step)
 
+                # Display the progress bar
                 bar()
 
         # Save the sample of the expression into the expression list
