@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import mediapipe as mp
 from keras.models import load_model
+from helper import image_preprocessing
 
 WAIT_FRAMES = 5
 CAP_FRAMES = 20
@@ -32,6 +33,7 @@ sample = []
 time_stamp = []
 norm_x = []
 norm_y = []
+sentence = []
 
 while True:
 
@@ -40,6 +42,8 @@ while True:
     rgb_img = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     results = mp_hands.process(rgb_img)
+
+    frame = image_preprocessing(frame, sentence)
 
     if results.multi_handedness:
         if frame_counter < CAP_FRAMES:
@@ -73,6 +77,8 @@ while True:
                 exp = np.asarray(expressions)
 
                 pred = classifier.predict(exp)
+
+                sentence.append(print_predictions(pred))
 
                 print(print_predictions(pred))
 
