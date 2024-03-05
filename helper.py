@@ -29,6 +29,7 @@ def image_preprocessing(frame, sentence):
 
     final_sentence = ""
     width = frame.shape[1]
+
     cv2.rectangle(frame, (0, 0), (width, 45), (0, 0), -1)
     cv2.rectangle(frame, (0, 0), (width-2, 45), (255, 255, 255), 2)
 

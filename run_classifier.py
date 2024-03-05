@@ -33,6 +33,7 @@ sample = []
 time_stamp = []
 norm_x = []
 norm_y = []
+norm_z = []
 sentence = []
 
 while True:
@@ -52,20 +53,25 @@ while True:
                 for i in range(len(hand_landmarks.landmark)):
                     x = hand_landmarks.landmark[i].x
                     y = hand_landmarks.landmark[i].y
+                    z = hand_landmarks.landmark[i].z
 
                     norm_x.append(x)
                     norm_y.append(y)
+                    norm_z.append(z)
 
             for hand_landmarks in results.multi_hand_landmarks:
                 for i in range(len(hand_landmarks.landmark)):
                     x = hand_landmarks.landmark[i].x
                     y = hand_landmarks.landmark[i].y
+                    z = hand_landmarks.landmark[i].z
 
                     x = x - min(norm_x)
                     y = y - min(norm_y)
+                    z = z - min(norm_z)
 
                     time_stamp.append(x)
                     time_stamp.append(y)
+                    time_stamp.append(z)
 
             sample.append(time_stamp)
             frame_counter += 1
@@ -80,12 +86,19 @@ while True:
 
                 sentence.append(print_predictions(pred))
 
+                # Ok, so this is the best version of the program so far
+                #Yeah so the classifier still needs training
+                # I actually signed yes, but it is a distance problem that I am hoping to solve with more training data
+                # Yeah so the user to the camera
+                # Yeah it does, but now Ill show you what I am trying to implement on top of it to improve it
+
                 print(print_predictions(pred))
 
                 expressions = []
 
                 norm_x = []
                 norm_y = []
+                norm_z = []
                 sample = []
 
     else:

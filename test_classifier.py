@@ -27,6 +27,7 @@ for expression_dir in os.listdir(DATA_PATH):
             # Added two lists to normalize the position of the hand in the frame
             norm_x = []
             norm_y = []
+            norm_z = []
             count = 0
 
             filename = os.path.join(DATA_PATH, expression_dir, sample_dir, str(i) + ".jpg")
@@ -46,23 +47,28 @@ for expression_dir in os.listdir(DATA_PATH):
 
                         x = hand_landmarks.landmark[j].x
                         y = hand_landmarks.landmark[j].y
+                        z = hand_landmarks.landmark[j].z
 
                         # Save the coordinates for a future normalization
                         norm_x.append(x)
                         norm_y.append(y)
+                        norm_z.append(z)
 
                     for j in range(len(hand_landmarks.landmark)):
 
                         x = hand_landmarks.landmark[j].x
                         y = hand_landmarks.landmark[j].y
+                        z = hand_landmarks.landmark[j].z
 
                         # NORMALIZATION
                         x = x - min(norm_x)
                         y = y - min(norm_y)
+                        z = z - min(norm_z)
 
                         # Save the coordinates as features in our time_step
                         time_step.append(x)
                         time_step.append(y)
+                        time_step.append(z)
 
                     # Save the time steps into our sample expression
                     sample.append(time_step)
@@ -74,23 +80,28 @@ for expression_dir in os.listdir(DATA_PATH):
                         for j in range(len(hand_landmarks.landmark)):
                             x = hand_landmarks.landmark[j].x
                             y = hand_landmarks.landmark[j].y
+                            z = hand_landmarks.landmark[j].z
 
                             # Save the coordinates for a future normalization
                             norm_x.append(x)
                             norm_y.append(y)
+                            norm_z.append(z)
 
                         for j in range(len(hand_landmarks.landmark)):
 
                             x = hand_landmarks.landmark[j].x
                             y = hand_landmarks.landmark[j].y
+                            z = hand_landmarks.landmark[j].z
 
                             # NORMALIZATION
                             x = x - min(norm_x)
                             y = y - min(norm_y)
+                            z = z - min(norm_z)
 
                             # Save the coordinates as features in our time_step
                             time_step.append(x)
                             time_step.append(y)
+                            time_step.append(z)
 
                             count += 1
 

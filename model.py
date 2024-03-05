@@ -8,7 +8,7 @@ Sequential model definition for the expression classifier
 
 def get_model(num_class):
     model = Sequential()
-    model.add(LSTM(64, input_shape=(20, 42), return_sequences=True, activation='relu'))
+    model.add(LSTM(64, input_shape=(20, 63), return_sequences=True, activation='relu'))
     model.add(LSTM(128, return_sequences=True, activation='relu'))
     model.add(LSTM(128, return_sequences=False, activation='relu'))
     model.add(Dense(64, activation='relu'))
