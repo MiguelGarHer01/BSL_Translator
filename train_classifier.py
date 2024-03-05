@@ -9,7 +9,7 @@ from keras import callbacks
 
 from helper import normalize_expressions, normalize_labels, number_classes
 
-EPOCHS = 100
+EPOCHS = 80
 
 data_dict = pickle.load(open('expressions.pickle', 'rb'))
 

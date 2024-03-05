@@ -10,7 +10,7 @@ CAP_FRAMES = 20
 frame_counter: int = 0
 wait_counter: int = 0
 
-labels_dict = {0: "Hello", 1: "Yes", 2: "Name"}
+labels_dict = {0: "Yes", 1: "Name", 2: "What"}
 
 
 def print_predictions(predictions):
@@ -85,12 +85,6 @@ while True:
                 pred = classifier.predict(exp)
 
                 sentence.append(print_predictions(pred))
-
-                # Ok, so this is the best version of the program so far
-                #Yeah so the classifier still needs training
-                # I actually signed yes, but it is a distance problem that I am hoping to solve with more training data
-                # Yeah so the user to the camera
-                # Yeah it does, but now Ill show you what I am trying to implement on top of it to improve it
 
                 print(print_predictions(pred))
 
