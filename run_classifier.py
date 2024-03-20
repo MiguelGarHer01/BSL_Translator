@@ -10,7 +10,7 @@ CAP_FRAMES = 20
 frame_counter: int = 0
 wait_counter: int = 0
 
-labels_dict = {0: "Yes", 1: "Name", 2: "What"}
+labels_dict = {0: "What", 1: "Yes", 2: "Name"}
 
 
 def print_predictions(predictions):

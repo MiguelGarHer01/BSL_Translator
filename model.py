@@ -16,6 +16,6 @@ def get_model(num_class):
     model.add(Dense(64, activation='relu'))
     model.add(Dense(32, activation='relu'))
     model.add(Dense(32, activation='relu'))
-    model.add(Dense(num_class, activation='sigmoid'))
+    model.add(Dense(num_class, activation='softmax'))
     model.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model

@@ -4,13 +4,13 @@ import os
 import time
 import mediapipe as mp
 
-IMG_PATH = "./data/1"
+IMG_PATH = "./data/0"
 
 WAIT_FRAMES = 5
 CAP_FRAMES = 20
 frame_counter: int = 0
 wait_counter: int = 0
-iteration: int = 3
+iteration: int = 13
 mp_hands = mp.solutions.hands
 
 cap = cv2.VideoCapture(0)

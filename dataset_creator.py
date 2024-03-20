@@ -65,6 +65,7 @@ for expression_dir in os.listdir(DATA_PATH):
 
                             x = hand_landmarks.landmark[j].x
                             y = hand_landmarks.landmark[j].y
+                            z = hand_landmarks.landmark[j].z
 
                             # NORMALIZATION
                             x = x - min(norm_x)
