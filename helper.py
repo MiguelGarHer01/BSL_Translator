@@ -30,6 +30,9 @@ def image_preprocessing(frame, sentence):
     final_sentence = ""
     width = frame.shape[1]
 
+    # Zoe's colour
+    cv2.putText(frame, "EXPRESSION MODE", (width - 230, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (18,28,149), 1, cv2.LINE_AA)
+
     cv2.rectangle(frame, (0, 0), (width, 45), (0, 0), -1)
     cv2.rectangle(frame, (0, 0), (width-2, 45), (255, 255, 255), 2)
 
@@ -43,4 +46,5 @@ def image_preprocessing(frame, sentence):
                     cv2.LINE_AA)
 
     return frame
+
 
