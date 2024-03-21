@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "BSL_test"
+version = "0.0.1"
+authors = [
+    { name = "Miguel Garcia Hernandez", email = "miguelgarher01@gmail.com"}
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Aproved :: MIT License",
+    "Operating system :: OS Independent"
+]
