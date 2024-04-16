@@ -1,33 +1,26 @@
 # BSL translator
 
-BSL Translator is a program created using python in order to translate BSL
+ritish Sign Language (BSL) serves as the primary mode of communication for many deaf and hard-of-hearing individuals in the UK.
+Recognizing the need for accessible communication solutions, this study
+introduces a BSL Translator. This translator leverages the Mediapipe
+computer vision framework in conjunction with a Long Short Term
+Memory classifier to accurately recognize and interpret BSL expressions. The research begins with an extensive review of literature,
+providing insights into the existing landscape of Sign Language Recognition (SLR) technologies. A technical review follows, outlining the
+methodology employed, including the integration of computer vision
+and machine learning techniques. A prototype of the BSL Translator
+is then designed and developed based on the findings from the preceding sections. Remarkably, the prototype achieves a processing time
+of 0.05 seconds, demonstrating promising results for real-time SLR
+applications. Moving forward, the prototype will undertake rigorous
+evaluation to assess its effectiveness compared to existing research in
+the field. This research aims to contribute to the advancement of communication accessibility for the deaf and hard-of-hearing community,
+attempting to bridge existing communication gaps through innovative
+technological solutions.
+
 
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
-pip install foobar
+pip install bsl_translator
 ```
-
-## Usage
-
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
