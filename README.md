@@ -1,6 +1,6 @@
 # BSL translator
 
-ritish Sign Language (BSL) serves as the primary mode of communication for many deaf and hard-of-hearing individuals in the UK.
+British Sign Language (BSL) serves as the primary mode of communication for many deaf and hard-of-hearing individuals in the UK.
 Recognizing the need for accessible communication solutions, this study
 introduces a BSL Translator. This translator leverages the Mediapipe
 computer vision framework in conjunction with a Long Short Term
@@ -19,7 +19,7 @@ technological solutions.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install bsl_translator.
 
 ```bash
 pip install bsl_translator
